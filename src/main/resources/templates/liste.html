@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Liste</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+	
+	<div class="container">
+			<h2>Liste des bières :</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Nom de la bière</th>
+					<th>Pays de la bière</th>
+					<th>Type de la bière</th>
+					<th>Degre de la bière</th>
+					<th>Description de la bière</th>
+					<th>Photo de la bière</th>
+				</tr>
+				
+				<tr th:each="biere: ${liste}">
+					<td th:text="${biere.nom}"></td>
+					<td th:text="${biere.pays}"></td>
+					<td th:text="${biere.type.nom}"></td>
+					<td th:text="${biere.degre}"></td>
+					<td th:text="${biere.description}"></td>
+					<td><img th:src="@{${biere.photosImagePath}}"/></td>
+					<td><span class="glyphicon glyphicon-minus"><a class="btn btn-info btn-lg" th:href="@{/del(id=${biere.id})}">X</a></span></td>
+				</tr>
+			</table>
+			
+			<div>
+				<a th:href="@{/form}">Retour à la partie création</a>
+			</div>
+	</div>
+
+</body>
+</html>

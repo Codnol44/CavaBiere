@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+</head>
+<body>
+
+	<div class="container">
+		<h1>Choisissez votre bière</h1><br><br>
+		
+			<form method="post" th:object="${biere}" th:action="@{/form}" enctype="multipart/form-data">
+				<ul>
+					<li>
+						<label for="titre">Nom de la bière</label>
+						<input type="text" id="nom" th:field="*{nom}"/>
+					</li>
+					<li>
+						<label for="titre">Pays</label>
+						<input type="text" id="pays" th:field="*{pays}"/>
+					</li>
+					<li>
+					    <label>Type</label>
+      					<select class="form-control" required th:field=*{type} >
+      					<option th:each="type:${@biereContextApplication.getTypes()}" 
+      					th:value="${type.no}" th:text="${type.nom}"></option>
+      					</select> 
+					</li>
+					<li>
+						<label for="titre">Degre</label>
+						<input type="number" id="degre" th:field="*{degre}"/>
+					</li>
+					<li>
+						<label for="titre">Description</label>
+						<input type="text" id="description" th:field="*{description}"/>
+					</li>
+					<li>
+    					<label>Photo: </label>
+    					<input type="file" name="image" accept="image/jpg" />
+					</li>
+				</ul>
+				<input type="submit" value="Valider bière">
+			</form>
+			
+			<div>
+				<a th:href="@{/liste}">Afficher la liste des bières !</a>
+			</div>
+		</div>
+		
+</body>
+</html>
