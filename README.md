@@ -2,6 +2,8 @@ README.md
 
 CAVABIERE : JavaEE + Spring Boot + Mysql.
 
+![Screenshot](capture.png)
+
 Description :
 
 Programme en JavaEE + Spring Boot + Mysql de gestion d'une cave à bières (avec photos !) en modèle CRUD.
