@@ -1,5 +1,3 @@
-README.md
-
 CAVABIERE : JavaEE + Spring Boot + Mysql.
 
 ![Screenshot](capture.png)
