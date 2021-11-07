@@ -1,5 +1,7 @@
 CAVABIERE : JavaEE + Spring Boot + Mysql.
 
+Précision : connexion sur port 8070 !
+
 ![Screenshot](capture.png)
 
 Description :
